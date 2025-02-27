@@ -51,7 +51,7 @@
 // Using the logic you have already created, determine:
 // The amount of additional space that would be required if the scientists were to start with 100 plants, and did not prune them for 10 weeks.
 
-// Mostly the same code as above refactored with variable to represent large area
+// Mostly the same code as above refactored with variable to represent large area and 80% of said area
 let lgArea80Percent = 0
 let lgArea = 0
 totalPlants = 100
@@ -64,17 +64,21 @@ while (week < 10) {
     week++
     weekStr = week === 1 ? `1 week` : `${week} weeks`
     console.log(`After ${weekStr} the total number of plants has doubled to ${totalPlants}.`)
-    if (lgArea80Percent > area * 0.8) {
-        console.log(`Plants exceed the allowed ${area * 0.8}sq/m area and should be pruned.  A ${lgArea}sq/m garden is required\n`)
-    }
-    else if (lgArea > area * 0.5) {
-        console.log(`The garden has ${lgArea80Percent}sq/m of plants.  They are approching max capacity.  Keep an eye on them.\n`)
-    }
-    else if (totalPlants > -1) {
-        console.log(`The garden has ${lgArea80Percent}sq/m of plants.  There is room to plant more.\n`)
-    }
-    else {
-        console.log(`You can't have ${totalPlants} plants, silly.\n`)
+    try {
+        if (lgArea80Percent > area * 0.8) {
+            console.log(`Plants exceed the allowed ${area * 0.8}sq/m area and should be pruned.  A ${lgArea}sq/m garden is required\n`)
+        }
+        else if (lgArea > area * 0.5) {
+            console.log(`The garden has ${lgArea80Percent}sq/m of plants.  They are approching max capacity.  Keep an eye on them.\n`)
+        }
+        else if (totalPlants > -1) {
+            console.log(`The garden has ${lgArea80Percent}sq/m of plants.  There is room to plant more.\n`)
+        }
+        else {
+            console.log(`You can't have ${totalPlants} plants, silly.\n`)
+        }
+    } catch (error) {
+        console.log(error)
     }
 }
 
