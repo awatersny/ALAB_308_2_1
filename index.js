@@ -50,28 +50,34 @@
 // The conservation area in which the garden is located has multiple other gardens. 
 // Using the logic you have already created, determine:
 // The amount of additional space that would be required if the scientists were to start with 100 plants, and did not prune them for 10 weeks.
-// If the space remained circular, what would be the radius of this expanded garden?
 
-// Mostly the same code as above
-radius = 5
+// Mostly the same code as above refactored with variable to represent large area
+let lgArea80Percent = 0
+let lgArea = 0
 totalPlants = 100
 console.log(`The initial number of plants will now be ${totalPlants}.\n`)
 week = 0
-while (week < 3) {
+while (week < 10) {
     totalPlants *= 2
+    lgArea80Percent = totalPlants*plantSize
+    lgArea = lgArea80Percent + lgArea80Percent * 0.25
     week++
     weekStr = week === 1 ? `1 week` : `${week} weeks`
     console.log(`After ${weekStr} the total number of plants has doubled to ${totalPlants}.`)
-    if (totalPlants * plantSize > area * 0.8) {
-        console.log(`${totalPlants * plantSize}sq/m of plants exceed the allowed ${area * 0.8}sq/m area and should be pruned.\n`)
+    if (lgArea80Percent > area * 0.8) {
+        console.log(`Plants exceed the allowed ${area * 0.8}sq/m area and should be pruned.  A ${lgArea}sq/m garden is required\n`)
     }
-    else if (totalPlants * plantSize > area * 0.5) {
-        console.log(`The garden has ${totalPlants * plantSize}sq/m of plants.  They are approching max capacity.  Keep an eye on them.\n`)
+    else if (lgArea > area * 0.5) {
+        console.log(`The garden has ${lgArea80Percent}sq/m of plants.  They are approching max capacity.  Keep an eye on them.\n`)
     }
     else if (totalPlants > -1) {
-        console.log(`The garden has ${totalPlants * plantSize}sq/m of plants.  There is room to plant more.\n`)
+        console.log(`The garden has ${lgArea80Percent}sq/m of plants.  There is room to plant more.\n`)
     }
     else {
         console.log(`You can't have ${totalPlants} plants, silly.\n`)
     }
 }
+
+// If the space remained circular, what would be the radius of this expanded garden?
+radius = (lgArea / PI) / 2
+console.log(`The radius would be ${radius}`)
