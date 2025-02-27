@@ -5,10 +5,10 @@
 // Here is the information you have been given:
 
     // The area in which the plants are contained is circular, with a radius of 5 meters.
-    const radius = 5
+    let radius = 5
         // The formula for calculating the area of a circle is PI multiplied by the radius, squared:
-        const PI = 3.1415;
-        const area = PI * radius * radius;
+        const PI = 3.1415
+        const area = PI * radius * radius
     // Each plant requires a minimum space of 0.8 square meters.
     const plantSize = 0.8
     // The area is starting with 20 plants.
@@ -45,3 +45,33 @@
             console.log(`You can't have ${totalPlants} plants, silly.\n`)
         }
     }
+
+// Part 2: Thinking Bigger
+// The conservation area in which the garden is located has multiple other gardens. 
+// Using the logic you have already created, determine:
+// The amount of additional space that would be required if the scientists were to start with 100 plants, and did not prune them for 10 weeks.
+// If the space remained circular, what would be the radius of this expanded garden?
+
+// Mostly the same code as above
+radius = 5
+totalPlants = 100
+console.log(`The initial number of plants will now be ${totalPlants}.\n`)
+week = 0
+while (week < 3) {
+    totalPlants *= 2
+    week++
+    weekStr = week === 1 ? `1 week` : `${week} weeks`
+    console.log(`After ${weekStr} the total number of plants has doubled to ${totalPlants}.`)
+    if (totalPlants * plantSize > area * 0.8) {
+        console.log(`${totalPlants * plantSize}sq/m of plants exceed the allowed ${area * 0.8}sq/m area and should be pruned.\n`)
+    }
+    else if (totalPlants * plantSize > area * 0.5) {
+        console.log(`The garden has ${totalPlants * plantSize}sq/m of plants.  They are approching max capacity.  Keep an eye on them.\n`)
+    }
+    else if (totalPlants > -1) {
+        console.log(`The garden has ${totalPlants * plantSize}sq/m of plants.  There is room to plant more.\n`)
+    }
+    else {
+        console.log(`You can't have ${totalPlants} plants, silly.\n`)
+    }
+}
