@@ -10,20 +10,24 @@
         const PI = 3.1415;
         const area = PI * radius * radius;
     // Each plant requires a minimum space of 0.8 square meters.
-    const maxPlantSize = 0.8
+    const plantSize = 0.8
     // The area is starting with 20 plants.
     let totalPlants = 20
     // The plants double in number every week.
-
+    totalPlants *= 2
+    totalPlants *= 2
 // Using this information, your objectives are to:
 
     //TODO Predict the plant growth after a specific number of weeks.
     //TODO Implement control flow to make decisions on whether the plants should be:
         //TODO Pruned, to stop them from exceeding the capacity of the garden.
-            // This condition should be met if the plant count after the given number of weeks is greater than 80% of the maximum capacity of the garden.
+        // This condition should be met if the plant count after the given number of weeks is greater than 80% of the maximum capacity of the garden.
+        if (totalPlants * plantSize > area * 0.8) {
+            console.log(`${totalPlants * plantSize}sq/m of plants cannot fit in a ${area * 0.8}sq/m area and should be pruned.`)
+        }
         //TODO Monitored, if they are growing at an acceptable rate.
-            // This condition should be met if the plant count is between 50% and 80% of the maximum capacity of the garden after the given number of weeks.
+        // This condition should be met if the plant count is between 50% and 80% of the maximum capacity of the garden after the given number of weeks.
         //TODO Planted, if there is room to plant more plants.
-            // This condition should be met if the plant count after the given number of weeks is less than 50% of the maximum capacity of the garden.
+        // This condition should be met if the plant count after the given number of weeks is less than 50% of the maximum capacity of the garden.
 
     //TODO Within your submission, include the results for 1, 2, and 3 weeks of growth as inputs.
