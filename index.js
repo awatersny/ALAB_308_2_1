@@ -14,7 +14,7 @@
     // The area is starting with 20 plants.
     let totalPlants = 20
     // The plants double in number every week.
-    totalPlants *= 3
+    totalPlants *= 2
 // Using this information, your objectives are to:
 
     //TODO Predict the plant growth after a specific number of weeks.
@@ -26,10 +26,13 @@
         }
         //TODO Monitored, if they are growing at an acceptable rate.
         // This condition should be met if the plant count is between 50% and 80% of the maximum capacity of the garden after the given number of weeks.
-        else if (totalPlants * plantSize > area * 0.5){
-            console.log(`The garden has${totalPlants * plantSize}sq/m of plants.  They are approching max capacity.  Keep an eye on them.`)
+        else if (totalPlants * plantSize > area * 0.5) {
+            console.log(`The garden has ${totalPlants * plantSize}sq/m of plants.  They are approching max capacity.  Keep an eye on them.`)
         }
         //TODO Planted, if there is room to plant more plants.
         // This condition should be met if the plant count after the given number of weeks is less than 50% of the maximum capacity of the garden.
+        else if (totalPlants > 0) {
+            console.log(`The garden has ${totalPlants * plantSize}sq/m of plants.  There is room to plant more.`)
+        }
 
     //TODO Within your submission, include the results for 1, 2, and 3 weeks of growth as inputs.
