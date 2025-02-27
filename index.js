@@ -14,8 +14,7 @@
     // The area is starting with 20 plants.
     let totalPlants = 20
     // The plants double in number every week.
-    totalPlants *= 2
-    totalPlants *= 2
+    totalPlants *= 3
 // Using this information, your objectives are to:
 
     //TODO Predict the plant growth after a specific number of weeks.
@@ -23,10 +22,13 @@
         //TODO Pruned, to stop them from exceeding the capacity of the garden.
         // This condition should be met if the plant count after the given number of weeks is greater than 80% of the maximum capacity of the garden.
         if (totalPlants * plantSize > area * 0.8) {
-            console.log(`${totalPlants * plantSize}sq/m of plants cannot fit in a ${area * 0.8}sq/m area and should be pruned.`)
+            console.log(`${totalPlants * plantSize}sq/m of plants exceed the allowed ${area * 0.8}sq/m area and should be pruned.`)
         }
         //TODO Monitored, if they are growing at an acceptable rate.
         // This condition should be met if the plant count is between 50% and 80% of the maximum capacity of the garden after the given number of weeks.
+        else if (totalPlants * plantSize > area * 0.5){
+            console.log(`The garden has${totalPlants * plantSize}sq/m of plants.  They are approching max capacity.  Keep an eye on them.`)
+        }
         //TODO Planted, if there is room to plant more plants.
         // This condition should be met if the plant count after the given number of weeks is less than 50% of the maximum capacity of the garden.
 
