@@ -83,5 +83,5 @@ while (week < 10) {
 }
 
 // If the space remained circular, what would be the radius of this expanded garden?
-radius = (lgArea / PI) / 2
+radius = Math.sqrt(lgArea / PI)
 console.log(`The radius would be ${radius}`)
