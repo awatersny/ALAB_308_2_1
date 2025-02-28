@@ -66,7 +66,7 @@ while (week < 10) {
     console.log(`After ${weekStr} the total number of plants has doubled to ${totalPlants}.`)
     try {
         if (lgArea80Percent > area * 0.8) {
-            console.log(`Plants exceed the allowed ${area * 0.8}sq/m area and should be pruned.  A ${lgArea}sq/m garden is required\n`)
+            throw `Error - Plants exceed the allowed ${area * 0.8}sq/m area and should be pruned.  A ${lgArea}sq/m garden is required\n`
         }
         else if (lgArea > area * 0.5) {
             console.log(`The garden has ${lgArea80Percent}sq/m of plants.  They are approching max capacity.  Keep an eye on them.\n`)
