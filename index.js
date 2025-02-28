@@ -83,5 +83,6 @@ while (week < 10) {
 }
 
 // If the space remained circular, what would be the radius of this expanded garden?
+// Needed for square root - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/sqrt
 radius = Math.sqrt(lgArea / PI)
 console.log(`The radius would be ${radius}`)
